@@ -2,12 +2,10 @@
 // @name          I am over 18
 // @namespace     http://tsai.it/project/gmscripts/i-am-over-18/
 // @homepageURL   http://tsai.it/project/gmscripts/i-am-over-18/
-// @version       0.2.20160733
+// @version       0.2.20160734
 // @description   Automatically agrees the "I'm over 18" declaration. The current supported sites are primarily in Taiwan.
 // @icon          https://github.com/tsaiid/gm-i-am-over-18/raw/master/icon48.png
 // @icon64        https://github.com/tsaiid/gm-i-am-over-18/raw/master/icon64.png
-// @updateURL     https://openuserjs.org/meta/tsaiid/I_am_over_18.meta.js
-// @downloadURL   https://openuserjs.org/meta/tsaiid/I_am_over_18.user.js
 // @license       MIT License (Expat)
 // @copyright     2016, I-Ta Tsai (http://tsai.it/)
 // @include       https://www.ptt.cc/*
@@ -26,7 +24,7 @@
 // @include       http://www.kocpc.com.tw/*
 // @include       http://www.myfreecams.com/*
 // @include       http://www.ibeauty.tw/*
-// @require       https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js
+// @require       https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
 // @require       https://gist.githubusercontent.com/BrockA/2625891/raw/waitForKeyElements.js
 // @run-at        document-idle
 // @grant         none
