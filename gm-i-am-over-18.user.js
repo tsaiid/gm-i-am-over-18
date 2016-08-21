@@ -2,7 +2,7 @@
 // @name          I am over 18
 // @namespace     http://tsai.it/project/gmscripts/i-am-over-18/
 // @homepageURL   https://github.com/tsaiid/gm-i-am-over-18
-// @version       0.2.20160802
+// @version       0.2.20160821
 // @description   Automatically agrees the "I'm over 18" declaration. The current supported sites are primarily in Taiwan.
 // @icon          https://github.com/tsaiid/gm-i-am-over-18/raw/master/icon48.png
 // @icon64        https://github.com/tsaiid/gm-i-am-over-18/raw/master/icon64.png
@@ -29,9 +29,9 @@
 // @grant         none
 // ==/UserScript==
 
-window.addEventListener('load', function() { // wait until page loaded
+this.$ = this.jQuery = jQuery.noConflict(true);
 
-  this.$ = this.jQuery = jQuery.noConflict(true);
+window.addEventListener('load', function() { // wait until page loaded
 
   var url = window.location.href;
 
@@ -63,6 +63,7 @@ window.addEventListener('load', function() { // wait until page loaded
 
   // for eyny, mycould
   if (url.match(/\.eyny\.com|www\.mycould\.com/) && $('input[value*="是，我已年滿18歲。"]').length) {
+    console.log(url);
     $('input[value*="是，我已年滿18歲。"]').click();
   }
 
