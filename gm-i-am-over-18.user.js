@@ -19,7 +19,7 @@
 // @include       http://katproxy.com/*
 // @include       http://www.xvideos.com/*
 // @include       http://video.jav101.com/*
-// @include       http://*.blogspot.tw/*
+// @include       /^https?://.*\.blogspot\.tw/.*$/
 // @include       http://www.appledaily.com.tw/*
 // @include       http://www.kocpc.com.tw/*
 // @include       http://www.myfreecams.com/*
