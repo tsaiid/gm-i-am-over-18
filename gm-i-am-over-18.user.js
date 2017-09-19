@@ -10,20 +10,18 @@
 // @license       MIT License (Expat)
 // @copyright     2016, I-Ta Tsai (http://tsai.it/)
 // @include       https://www.ptt.cc/*
-// @include       http://www.ettoday.net/*
-// @include       http://star.ettoday.net/*
+// @include       /https?://(www|star)\.ettoday\.net/.*/
 // @include       http://*.playno1.com/*
 // @include       http://*.eyny.com/*
-// @include       http://ck101.com/*
-// @include       http://www.mycould.com/*
+// @include       /https?://ck101\.com/.*/
 // @include       http://kickass.socialtorrent.net/*
 // @include       http://katproxy.com/*
-// @include       http://www.xvideos.com/*
-// @include       http://video.jav101.com/*
-// @include       /^https?://.*\.blogspot\.tw/.*$/
+// @include       /https?://www\.xvideos\.com/.*/
+// @include       https://v.jav101.com/*
+// @include       /^https?://.*\.blogspot\.tw/.*/
 // @include       http://www.appledaily.com.tw/*
-// @include       http://www.kocpc.com.tw/*
-// @include       http://www.myfreecams.com/*
+// @include       https://www.kocpc.com.tw/*
+// @include       https://www.myfreecams.com/*
 // @include       http://www.ibeauty.tw/*
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
 // @require       https://gist.githubusercontent.com/BrockA/2625891/raw/waitForKeyElements.js
@@ -88,7 +86,7 @@ window.addEventListener('load', function() { // wait until page loaded
   }
 
   // for jav101
-  if (url.match(/video\.jav101\.com/) && $('a.agreeBtn').length) {
+  if (url.match(/v\.jav101\.com/) && $('a.agreeBtn').length) {
     $('a.agreeBtn').click();
   }
 
