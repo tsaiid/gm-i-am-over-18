@@ -10,15 +10,15 @@
 // @license       MIT License (Expat)
 // @copyright     2016, I-Ta Tsai (http://tsai.it/)
 // @include       https://www.ptt.cc/*
-// @include       /https?://(www|star)\.ettoday\.net/.*/
+// @include       http*://*.ettoday.net/*
 // @include       http://*.playno1.com/*
 // @include       http://*.eyny.com/*
-// @include       /https?://ck101\.com/.*/
+// @include       http*://ck101.com/*
 // @include       http://kickass.socialtorrent.net/*
 // @include       http://katproxy.com/*
-// @include       /https?://www\.xvideos\.com/.*/
+// @include       http*://www.xvideos.com/*
 // @include       https://v.jav101.com/*
-// @include       /^https?://.*\.blogspot\.tw/.*/
+// @include       http*://*.blogspot.tw/*
 // @include       http://www.appledaily.com.tw/*
 // @include       https://www.kocpc.com.tw/*
 // @include       https://www.myfreecams.com/*
