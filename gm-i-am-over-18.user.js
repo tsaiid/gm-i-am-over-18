@@ -3,7 +3,7 @@
 // @author        tsaiid
 // @namespace     http://tsai.it/project/gmscripts/i-am-over-18/
 // @homepageURL   https://github.com/tsaiid/gm-i-am-over-18
-// @version       0.2.20170919
+// @version       0.2.20171017
 // @description   Automatically agrees the "I'm over 18" declaration. The current supported sites are primarily in Taiwan.
 // @icon          https://github.com/tsaiid/gm-i-am-over-18/raw/master/icon48.png
 // @icon64        https://github.com/tsaiid/gm-i-am-over-18/raw/master/icon64.png
@@ -23,6 +23,7 @@
 // @include       https://www.kocpc.com.tw/*
 // @include       https://www.myfreecams.com/*
 // @include       http://www.ibeauty.tw/*
+// @include       http://www.storm.mg/*
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
 // @require       https://gist.githubusercontent.com/BrockA/2625891/raw/waitForKeyElements.js
 // @grant         none
@@ -55,7 +56,7 @@ window.addEventListener('load', function() { // wait until page loaded
   if (url.match(/\.playno1\.com/)) {
     console.log("play01");
     waitForKeyElements (
-      'button:contains("我已滿18歲 進入")', 
+      'button:contains("我已滿18歲 進入")',
           clickToContinue
     );
   }
@@ -70,7 +71,7 @@ window.addEventListener('load', function() { // wait until page loaded
   if (url.match(/ck101\.com/)) {
       console.log("ck101");
       waitForKeyElements (
-      "#fwin_dialog_submit", 
+      "#fwin_dialog_submit",
           clickToContinue
       );
   }
@@ -105,7 +106,7 @@ window.addEventListener('load', function() { // wait until page loaded
   if (url.match(/www\.appledaily\.com\.tw/)) {
       console.log("appledaily");
       waitForKeyElements (
-      "#popup_18 a.yes", 
+      "#popup_18 a.yes",
           clickToContinue
       );
   }
@@ -114,7 +115,7 @@ window.addEventListener('load', function() { // wait until page loaded
   if (url.match(/www\.kocpc\.com\.tw/)) {
       console.log("kocpc");
       waitForKeyElements (
-      "button.ox18B", 
+      "button.ox18B",
           clickToContinue
       );
   }
@@ -123,7 +124,7 @@ window.addEventListener('load', function() { // wait until page loaded
   if (url.match(/www\.myfreecams\.com/)) {
       console.log("myfreecams");
       waitForKeyElements (
-      "#enter_desktop", 
+      "#enter_desktop",
           clickToContinue
       );
   }
@@ -132,7 +133,16 @@ window.addEventListener('load', function() { // wait until page loaded
   if (url.match(/www\.ibeauty\.tw/)) {
       console.log("ibeauty");
       waitForKeyElements (
-        ".warningWp .warningBtn .btnYes", 
+        ".warningWp .warningBtn .btnYes",
+        clickToContinue
+      );
+  }
+
+  // storm.mg
+  if (url.match(/www\.storm\.mg/)) {
+      console.log("storm.mg");
+      waitForKeyElements (
+        "button.button18x.yes",
         clickToContinue
       );
   }
