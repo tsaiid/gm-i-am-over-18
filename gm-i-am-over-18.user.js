@@ -24,6 +24,7 @@
 // @include       https://www.myfreecams.com/*
 // @include       http://www.ibeauty.tw/*
 // @include       http://www.storm.mg/*
+// @include       http://www.getchu.com/php/attestation.html*
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
 // @require       https://gist.githubusercontent.com/BrockA/2625891/raw/waitForKeyElements.js
 // @grant         none
@@ -146,5 +147,12 @@ window.addEventListener('load', function() { // wait until page loaded
         clickToContinue
       );
   }
-
+  // getchu.com
+  if (url.match(/www\.getchu\.com/)) {
+      console.log("getchu.com");
+    waitForKeyElements (
+      'a:contains("[は い]")',
+          clickToContinue
+    );
+  }
 }, false);
