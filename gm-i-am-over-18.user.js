@@ -7,7 +7,7 @@
 // @description   Automatically agrees the "I'm over 18" declaration. The current supported sites are primarily in Taiwan.
 // @icon          https://github.com/tsaiid/gm-i-am-over-18/raw/master/icon48.png
 // @icon64        https://github.com/tsaiid/gm-i-am-over-18/raw/master/icon64.png
-// @license       MIT License (Expat)
+// @license       MIT
 // @copyright     2016, I-Ta Tsai (http://tsai.it/)
 // @include       https://www.ptt.cc/*
 // @include       http*://*.ettoday.net/*
