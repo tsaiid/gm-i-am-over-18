@@ -25,6 +25,7 @@
 // @include       http://www.ibeauty.tw/*
 // @include       http://www.storm.mg/*
 // @include       http://www.getchu.com/php/attestation.html*
+// @include       http*://t66y.com/
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
 // @require       https://gist.githubusercontent.com/BrockA/2625891/raw/waitForKeyElements.js
 // @grant         none
@@ -154,5 +155,13 @@ window.addEventListener('load', function() { // wait until page loaded
       'a:contains("[は い]")',
           clickToContinue
     );
+  }
+  // t66y.com
+  if (url.match(/t66y\.com/)) {
+      console.log('t66y.com');
+      waitForKeyElements (
+          'a:contains("滿 18 歲,")',
+          clickToContinue
+      );
   }
 }, false);
