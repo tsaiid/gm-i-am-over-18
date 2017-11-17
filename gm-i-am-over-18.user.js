@@ -35,7 +35,7 @@ this.$ = this.jQuery = jQuery.noConflict(true);
 
 window.addEventListener('load', function () { // wait until page loaded
 
-    var url = window.location.href;
+    let url = window.location.href;
 
     function clickToContinue(jNodes) {
         console.log(jNodes);
@@ -84,8 +84,9 @@ window.addEventListener('load', function () { // wait until page loaded
     }
 
     // for xvideos
-    if ($('#disclamer_message').length) {
-        $('#disclamer_message span:contains("ENTER")').parent().click();
+    if (url.match(/\.xvideos\.com/)) {
+        $('#disclaimer_background').click();
+        console.log("xvideos");
     }
 
     // for jav101
@@ -96,9 +97,9 @@ window.addEventListener('load', function () { // wait until page loaded
     // blogspot
     // from https://gist.github.com/obeattie/362589
     if (url.match(/\.blogspot\.tw/)) {
-        var overlay = document.getElementById('injected-iframe');
+        let overlay = document.getElementById('injected-iframe');
         if (overlay) {
-            var nextSibling = overlay.nextElementSibling;
+            let nextSibling = overlay.nextElementSibling;
             if (nextSibling.tagName == 'STYLE') nextSibling.parentElement.removeChild(nextSibling);
             overlay.parentElement.removeChild(overlay);
         }
