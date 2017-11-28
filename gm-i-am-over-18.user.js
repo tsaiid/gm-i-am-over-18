@@ -3,7 +3,7 @@
 // @author        tsaiid
 // @namespace     http://tsai.it/project/gmscripts/i-am-over-18/
 // @homepageURL   https://github.com/tsaiid/gm-i-am-over-18
-// @version       0.2.20171109
+// @version       0.2.20171129
 // @description   Automatically agrees the "I'm over 18" declaration. The current supported sites are primarily in Taiwan.
 // @icon          https://github.com/tsaiid/gm-i-am-over-18/raw/master/icon48.png
 // @icon64        https://github.com/tsaiid/gm-i-am-over-18/raw/master/icon64.png
@@ -45,17 +45,17 @@ window.addEventListener('load', function () { // wait until page loaded
     }
 
     // for ptt
-    if (url.match(/www\.ptt\.cc/) && $('button:contains("我同意，我已年滿十八歲")').length) {
+    if (url.includes("www.ptt.cc") && $('button:contains("我同意，我已年滿十八歲")').length) {
         $('button:contains("我同意，我已年滿十八歲")').click();
     }
 
     // for ettoday
-    if (url.match(/www|star\.ettoday\.net/) && $('.adult-box').length && $('.adult-box').is(':visible')) {
+    if (url.includes(".ettoday.net") && $('.adult-box').length && $('.adult-box').is(':visible')) {
         $('.adult-box').hide();
     }
 
     // for playno1
-    if (url.match(/\.playno1\.com/)) {
+    if (url.includes(".playno1.com")) {
         console.log("play01");
         waitForKeyElements(
             'button:contains("我已滿18歲 進入")',
@@ -63,14 +63,14 @@ window.addEventListener('load', function () { // wait until page loaded
         );
     }
 
-    // for eyny, mycould
-    if (url.match(/\.eyny\.com|www\.mycould\.com/) && $('input[value*="是，我已年滿18歲。"]').length) {
+    // for eyny
+    if (url.includes(".eyny.com") && $('input[value*="是，我已年滿18歲。"]').length) {
         console.log(url);
         $('input[value*="是，我已年滿18歲。"]').click();
     }
 
     // for ck101
-    if (url.match(/ck101\.com/)) {
+    if (url.includes("ck101.com")) {
         console.log("ck101");
         waitForKeyElements(
             "#fwin_dialog_submit",
@@ -79,24 +79,24 @@ window.addEventListener('load', function () { // wait until page loaded
     }
 
     // for kickass
-    if (url.match(/kickass\.socialtorrent\.net|katproxy\.com/) && $('button:contains("Yes, let me see it")').length) {
+    if ((url.includes("kickass.socialtorrent.net") || url.includes("katproxy.com")) && $('button:contains("Yes, let me see it")').length) {
         $('button:contains("Yes, let me see it")').click();
     }
 
     // for xvideos
-    if (url.match(/\.xvideos\.com/)) {
+    if (url.includes(".xvideos.com")) {
         $('#disclaimer_background').click();
         console.log("xvideos");
     }
 
     // for jav101
-    if (url.match(/v\.jav101\.com/) && $('a.agreeBtn').length) {
+    if (url.includes("v.jav101.com") && $('a.agreeBtn').length) {
         $('a.agreeBtn').click();
     }
 
     // blogspot
     // from https://gist.github.com/obeattie/362589
-    if (url.match(/\.blogspot\.tw/)) {
+    if (url.includes(".blogspot.tw")) {
         let overlay = document.getElementById('injected-iframe');
         if (overlay) {
             let nextSibling = overlay.nextElementSibling;
@@ -106,7 +106,7 @@ window.addEventListener('load', function () { // wait until page loaded
     }
 
     // appledaily
-    if (url.match(/www\.appledaily\.com\.tw/)) {
+    if (url.includes("www.appledaily.com.tw")) {
         console.log("appledaily");
         waitForKeyElements(
             "#popup_18 a.yes",
@@ -115,7 +115,7 @@ window.addEventListener('load', function () { // wait until page loaded
     }
 
     // www.kocpc.com.tw
-    if (url.match(/www\.kocpc\.com\.tw/)) {
+    if (url.includes("www.kocpc.com.tw")) {
         console.log("kocpc");
         waitForKeyElements(
             "button.ox18B",
@@ -124,7 +124,7 @@ window.addEventListener('load', function () { // wait until page loaded
     }
 
     // myfreecams
-    if (url.match(/www\.myfreecams\.com/)) {
+    if (url.includes("www.myfreecams.com")) {
         console.log("myfreecams");
         waitForKeyElements(
             "#enter_desktop",
@@ -133,7 +133,7 @@ window.addEventListener('load', function () { // wait until page loaded
     }
 
     // ibeauty
-    if (url.match(/www\.ibeauty\.tw/)) {
+    if (url.includes("www.ibeauty.tw")) {
         console.log("ibeauty");
         waitForKeyElements(
             ".warningWp .warningBtn .btnYes",
@@ -142,7 +142,7 @@ window.addEventListener('load', function () { // wait until page loaded
     }
 
     // storm.mg
-    if (url.match(/www\.storm\.mg/)) {
+    if (url.includes("www.storm.mg")) {
         console.log("storm.mg");
         waitForKeyElements(
             "button.button18x.yes",
@@ -154,7 +154,7 @@ window.addEventListener('load', function () { // wait until page loaded
         $('a:contains("[は い]")')[0].click();
     }
     // t66y.com
-    if (url.match(/t66y\.com/)) {
+    if (url.includes("t66y.com")) {
         console.log('t66y.com');
         waitForKeyElements(
             'a:contains("滿 18 歲,")',
