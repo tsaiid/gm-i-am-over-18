@@ -150,12 +150,8 @@ window.addEventListener('load', function () { // wait until page loaded
         );
     }
     // getchu.com
-    if (url.match(/www\.getchu\.com/)) {
-        console.log("getchu.com");
-        waitForKeyElements(
-            'a:contains("[は い]")',
-            clickToContinue
-        );
+    if (url.includes("www.getchu.com/")) {
+        $('a:contains("[は い]")')[0].click();
     }
     // t66y.com
     if (url.match(/t66y\.com/)) {
