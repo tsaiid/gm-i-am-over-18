@@ -3,7 +3,7 @@
 // @author        tsaiid
 // @namespace     http://tsai.it/project/gmscripts/i-am-over-18/
 // @homepageURL   https://github.com/tsaiid/gm-i-am-over-18
-// @version       0.2.20171129
+// @version       0.2.20171130
 // @description   Automatically agrees the "I'm over 18" declaration. The current supported sites are primarily in Taiwan.
 // @icon          https://github.com/tsaiid/gm-i-am-over-18/raw/master/icon48.png
 // @icon64        https://github.com/tsaiid/gm-i-am-over-18/raw/master/icon64.png
@@ -45,12 +45,12 @@ window.addEventListener('load', function () { // wait until page loaded
     }
 
     // for ptt
-    if (url.includes("www.ptt.cc") && $('button:contains("我同意，我已年滿十八歲")').length) {
+    if (url.includes("www.ptt.cc")) {
         $('button:contains("我同意，我已年滿十八歲")').click();
     }
 
     // for ettoday
-    if (url.includes(".ettoday.net") && $('.adult-box').length && $('.adult-box').is(':visible')) {
+    if (url.includes(".ettoday.net") && $('.adult-box').is(':visible')) {
         $('.adult-box').hide();
     }
 
@@ -64,7 +64,7 @@ window.addEventListener('load', function () { // wait until page loaded
     }
 
     // for eyny
-    if (url.includes(".eyny.com") && $('input[value*="是，我已年滿18歲。"]').length) {
+    if (url.includes(".eyny.com")) {
         console.log(url);
         $('input[value*="是，我已年滿18歲。"]').click();
     }
@@ -79,7 +79,7 @@ window.addEventListener('load', function () { // wait until page loaded
     }
 
     // for kickass
-    if ((url.includes("kickass.socialtorrent.net") || url.includes("katproxy.com")) && $('button:contains("Yes, let me see it")').length) {
+    if (url.includes("kickass.socialtorrent.net") || url.includes("katproxy.com")) {
         $('button:contains("Yes, let me see it")').click();
     }
 
@@ -90,7 +90,7 @@ window.addEventListener('load', function () { // wait until page loaded
     }
 
     // for jav101
-    if (url.includes("v.jav101.com") && $('a.agreeBtn').length) {
+    if (url.includes("v.jav101.com")) {
         $('a.agreeBtn').click();
     }
 
