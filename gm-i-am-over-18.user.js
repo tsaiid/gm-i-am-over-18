@@ -3,7 +3,7 @@
 // @author        tsaiid
 // @namespace     http://tsai.it/project/gmscripts/i-am-over-18/
 // @homepageURL   https://github.com/tsaiid/gm-i-am-over-18
-// @version       0.2.20171130
+// @version       0.2.20180106
 // @description   Automatically agrees the "I'm over 18" declaration. The current supported sites are primarily in Taiwan.
 // @icon          https://github.com/tsaiid/gm-i-am-over-18/raw/master/icon48.png
 // @icon64        https://github.com/tsaiid/gm-i-am-over-18/raw/master/icon64.png
@@ -26,6 +26,7 @@
 // @include       http://www.storm.mg/*
 // @include       http://www.getchu.com/php/attestation.html*
 // @include       http*://t66y.com/
+// @include       https://video.fc2.com/*
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
 // @require       https://gist.githubusercontent.com/BrockA/2625891/raw/waitForKeyElements.js
 // @grant         none
@@ -71,11 +72,8 @@ window.addEventListener('load', function () { // wait until page loaded
 
     // for ck101
     if (url.includes("ck101.com")) {
-        console.log("ck101");
-        waitForKeyElements(
-            "#fwin_dialog_submit",
-            clickToContinue
-        );
+      document.getElementById('periodaggre18_2015').checked = true;
+      document.getElementById('fwin_dialog_submit').click();
     }
 
     // for kickass
@@ -160,5 +158,9 @@ window.addEventListener('load', function () { // wait until page loaded
             'a:contains("滿 18 歲,")',
             clickToContinue
         );
+    }
+    // <a href="javascript:void(0)" class="c-btn-102 btnSz-2" role="button" aria-label="yes">是（進入）</a>
+    if (url.includes("fc2.com")) {
+        document.querySelector("a.c-btn-102").click();
     }
 }, false);
