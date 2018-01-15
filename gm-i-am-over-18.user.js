@@ -18,7 +18,7 @@
 // @include       http://katproxy.com/*
 // @include       http*://www.xvideos.com/*
 // @include       https://v.jav101.com/*
-// @include       http*://*.blogspot.tw/*
+// @include       http*://*.blogspot.*/*
 // @include       http://www.appledaily.com.tw/*
 // @include       https://www.kocpc.com.tw/*
 // @include       https://www.myfreecams.com/*
@@ -94,7 +94,7 @@ window.addEventListener('load', function () { // wait until page loaded
 
     // blogspot
     // from https://gist.github.com/obeattie/362589
-    if (url.includes(".blogspot.tw")) {
+    if (url.indexOf('.blogspot.')) {
         let overlay = document.getElementById('injected-iframe');
         if (overlay) {
             let nextSibling = overlay.nextElementSibling;
