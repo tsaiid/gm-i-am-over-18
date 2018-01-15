@@ -94,7 +94,7 @@ window.addEventListener('load', function () { // wait until page loaded
 
     // blogspot
     // from https://gist.github.com/obeattie/362589
-    if (url.match(/\.blogspot\.\w{2,3}/)) {
+    if (url.indexOf('.blogspot.')) {
         let overlay = document.getElementById('injected-iframe');
         if (overlay) {
             let nextSibling = overlay.nextElementSibling;
