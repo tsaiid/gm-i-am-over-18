@@ -154,6 +154,7 @@ window.addEventListener('load', ()=> { // wait until page loaded
     }
     // <a href="javascript:void(0)" class="c-btn-102 btnSz-2" role="button" aria-label="yes">是（進入）</a>
     if (url.includes(".fc2.com")) {
-        document.querySelector("a.c-btn-102").click();
+        let a = document.querySelector("a.c-btn-102") || document.querySelector("#age_ok_btn");
+        a.click();
     }
 }, false);
