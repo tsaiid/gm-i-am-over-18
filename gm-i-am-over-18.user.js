@@ -12,7 +12,7 @@
 // @include       https://www.ptt.cc/*
 // @include       http*://*.ettoday.net/*
 // @include       http://*.playno1.com/*
-// @include       http://*.eyny.com/*
+// @include       http*://*.eyny.com/*
 // @include       http*://ck101.com/*
 // @include       http://kickass.socialtorrent.net/*
 // @include       http://katproxy.com/*
@@ -26,7 +26,7 @@
 // @include       http://www.storm.mg/*
 // @include       http://www.getchu.com/php/attestation.html*
 // @include       http*://t66y.com/
-// @include       https://video.fc2.com/*
+// @include       https://*.fc2.com/*
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
 // @require       https://gist.githubusercontent.com/BrockA/2625891/raw/waitForKeyElements.js
 // @grant         none
@@ -34,14 +34,16 @@
 
 this.$ = this.jQuery = jQuery.noConflict(true);
 
-window.addEventListener('load', function () { // wait until page loaded
+window.addEventListener('load', ()=> { // wait until page loaded
 
     let url = window.location.href;
 
     function clickToContinue(jNodes) {
+/*
         console.log(jNodes);
         console.log(jNodes.context);
         console.log(jNodes.selector);
+*/
         jNodes[0].click();
     }
 
@@ -57,7 +59,6 @@ window.addEventListener('load', function () { // wait until page loaded
 
     // for playno1
     if (url.includes(".playno1.com")) {
-        console.log("play01");
         waitForKeyElements(
             'button:contains("我已滿18歲 進入")',
             clickToContinue
@@ -66,7 +67,6 @@ window.addEventListener('load', function () { // wait until page loaded
 
     // for eyny
     if (url.includes(".eyny.com")) {
-        console.log(url);
         $('input[value*="是，我已年滿18歲。"]').click();
     }
 
@@ -84,7 +84,6 @@ window.addEventListener('load', function () { // wait until page loaded
     // for xvideos
     if (url.includes(".xvideos.com")) {
         $('#disclaimer_background').click();
-        console.log("xvideos");
     }
 
     // for jav101
@@ -105,7 +104,6 @@ window.addEventListener('load', function () { // wait until page loaded
 
     // appledaily
     if (url.includes("www.appledaily.com.tw")) {
-        console.log("appledaily");
         waitForKeyElements(
             "#popup_18 a.yes",
             clickToContinue
@@ -114,7 +112,6 @@ window.addEventListener('load', function () { // wait until page loaded
 
     // www.kocpc.com.tw
     if (url.includes("www.kocpc.com.tw")) {
-        console.log("kocpc");
         waitForKeyElements(
             "button.ox18B",
             clickToContinue
@@ -123,7 +120,6 @@ window.addEventListener('load', function () { // wait until page loaded
 
     // myfreecams
     if (url.includes("www.myfreecams.com")) {
-        console.log("myfreecams");
         waitForKeyElements(
             "#enter_desktop",
             clickToContinue
@@ -132,7 +128,6 @@ window.addEventListener('load', function () { // wait until page loaded
 
     // ibeauty
     if (url.includes("www.ibeauty.tw")) {
-        console.log("ibeauty");
         waitForKeyElements(
             ".warningWp .warningBtn .btnYes",
             clickToContinue
@@ -141,7 +136,6 @@ window.addEventListener('load', function () { // wait until page loaded
 
     // storm.mg
     if (url.includes("www.storm.mg")) {
-        console.log("storm.mg");
         waitForKeyElements(
             "button.button18x.yes",
             clickToContinue
@@ -153,14 +147,13 @@ window.addEventListener('load', function () { // wait until page loaded
     }
     // t66y.com
     if (url.includes("t66y.com")) {
-        console.log('t66y.com');
         waitForKeyElements(
             'a:contains("滿 18 歲,")',
             clickToContinue
         );
     }
     // <a href="javascript:void(0)" class="c-btn-102 btnSz-2" role="button" aria-label="yes">是（進入）</a>
-    if (url.includes("fc2.com")) {
+    if (url.includes(".fc2.com")) {
         document.querySelector("a.c-btn-102").click();
     }
 }, false);
