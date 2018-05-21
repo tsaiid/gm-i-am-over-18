@@ -160,7 +160,7 @@ if (url.includes(".fc2.com")) {
 }
 // dcard
 // <button class="Button_primary_3KkkP Button_button_2uDT-" type="button">是，我已滿十八歲。</button>
-if (url.includes("www.getchu.com/")) {
+if (url.includes("www.dcard.tw/")) {
     waitForKeyElements(
         'button:contains("是，我已滿十八歲。")',
         clickToContinue
