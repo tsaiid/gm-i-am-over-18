@@ -1,36 +1,37 @@
 // ==UserScript==
-// @name          I am over 18
-// @author        tsaiid
-// @namespace     http://tsai.it/project/gmscripts/i-am-over-18/
-// @homepageURL   https://github.com/tsaiid/gm-i-am-over-18
-// @run-at document-idle
-// @version       0.2.20180106
-// @description   Automatically agrees the "I'm over 18" declaration. The current supported sites are primarily in Taiwan.
-// @icon          https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon48.png
-// @icon64        https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon64.png
-// @license       MIT
-// @copyright     2016, I-Ta Tsai (http://tsai.it/)
-// @match         https://www.ptt.cc/*
-// @match         *://*.ettoday.net/*
-// @match         http://*.playno1.com/*
-// @match         *://*.eyny.com/*
-// @match         *://ck101.com/*
-// @match         http://kickass.socialtorrent.net/*
-// @match         http://katproxy.com/*
-// @match         *://www.xvideos.com/*
-// @match         https://v.jav101.com/*
-// @match         *://*.blogspot.*/*
-// @match         http://www.appledaily.com.tw/*
-// @match         https://www.kocpc.com.tw/*
-// @match         https://www.myfreecams.com/*
-// @match         http://www.ibeauty.tw/*
-// @match         http://www.storm.mg/*
-// @match         http://www.getchu.com/php/attestation.html*
-// @match         *://t66y.com/
-// @match         https://*.fc2.com/*
-// @require       https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
-// @require       https://gist.githubusercontent.com/BrockA/2625891/raw/waitForKeyElements.js
-// @grant         none
+// @name            I am over 18
+// @author          tsaiid
+// @namespace       http://tsai.it/project/gmscripts/i-am-over-18/
+// @homepageURL     https://github.com/tsaiid/gm-i-am-over-18
+// @run-at          document-idle
+// @version         0.2.20180521
+// @description     Automatically agrees the "I'm over 18" declaration. The current supported sites are primarily in Taiwan.
+// @icon            https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon48.png
+// @icon64          https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon64.png
+// @license         MIT
+// @copyright       2016, I-Ta Tsai (http://tsai.it/)
+// @match           https://www.ptt.cc/*
+// @match           *://*.ettoday.net/*
+// @match           http://*.playno1.com/*
+// @match           *://*.eyny.com/*
+// @match           *://ck101.com/*
+// @match           http://kickass.socialtorrent.net/*
+// @match           http://katproxy.com/*
+// @match           *://www.xvideos.com/*
+// @match           https://v.jav101.com/*
+// @match           *://*.blogspot.*/*
+// @match           http://www.appledaily.com.tw/*
+// @match           https://www.kocpc.com.tw/*
+// @match           https://www.myfreecams.com/*
+// @match           http://www.ibeauty.tw/*
+// @match           http://www.storm.mg/*
+// @match           http://www.getchu.com/php/attestation.html*
+// @match           *://t66y.com/
+// @match           https://*.fc2.com/*
+// @match           https://www.dcard.tw/*
+// @require         https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
+// @require         https://gist.githubusercontent.com/BrockA/2625891/raw/waitForKeyElements.js
+// @grant           none
 // ==/UserScript==
 
 this.$ = this.jQuery = jQuery.noConflict(true);
@@ -156,4 +157,12 @@ if (url.includes("t66y.com")) {
 if (url.includes(".fc2.com")) {
     let a = document.querySelector("a.c-btn-102") || document.querySelector("#age_ok_btn");
     a.click();
+}
+// dcard
+// <button class="Button_primary_3KkkP Button_button_2uDT-" type="button">是，我已滿十八歲。</button>
+if (url.includes("www.getchu.com/")) {
+    waitForKeyElements(
+        'button:contains("是，我已滿十八歲。")',
+        clickToContinue
+    );
 }
