@@ -4,7 +4,7 @@
 // @namespace       http://tsai.it/project/gmscripts/i-am-over-18/
 // @homepageURL     https://github.com/tsaiid/gm-i-am-over-18
 // @run-at          document-idle
-// @version         0.2.20190114
+// @version         0.2.20190128
 // @description     Automatically agrees the "I'm over 18" declaration. The current supported sites are primarily in Taiwan.
 // @icon            https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon48.png
 // @icon64          https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon64.png
@@ -29,6 +29,7 @@
 // @match           *://t66y.com/
 // @match           https://*.fc2.com/*
 // @match           https://www.dcard.tw/*
+// @match           *://www.jkforum.net/*
 // @require         https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
 // @require         https://gist.githubusercontent.com/BrockA/2625891/raw/waitForKeyElements.js
 // @grant           none
@@ -166,5 +167,9 @@
 			'button:contains("是，我已滿十八歲。")',
 			clickToContinue
 		);
+	}
+	// jkforum
+	if (url.includes("www.jkforum.net/")){
+		$('#fwin_dialog_submit').click();
 	}
 })();
