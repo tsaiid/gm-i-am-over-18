@@ -170,6 +170,9 @@
 	}
 	// jkforum
 	else if (url.includes("www.jkforum.net/")){
-		document.getElementById('fwin_dialog_submit').click();
+	    waitForKeyElements(
+			'button#fwin_dialog_submit',
+			clickToContinue
+		);
 	}
 })();
