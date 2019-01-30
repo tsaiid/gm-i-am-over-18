@@ -56,8 +56,8 @@
 	}
 
 	// for ettoday
-	if (url.includes(".ettoday.net") && $('.adult-box').is(':visible')) {
-		$('.adult-box').hide();
+	if (url.includes(".ettoday.net")) {
+		document.querySelector('a.enter').click();
 	}
 
 	// for playno1
@@ -86,12 +86,12 @@
 
 	// for xvideos
 	if (url.includes(".xvideos.com")) {
-		$('#disclaimer_background').click();
+		document.getElementById('disclaimer_background').click();
 	}
 
 	// for jav101
 	if (url.includes("v.jav101.com")) {
-		$('a.agreeBtn').click();
+		document.querySelector("a.agreeBtn").click();
 	}
 
 	// blogspot
@@ -157,7 +157,7 @@
 	}
 	// <a href="javascript:void(0)" class="c-btn-102 btnSz-2" role="button" aria-label="yes">是（進入）</a>
 	if (url.includes(".fc2.com")) {
-		const a = document.querySelector("a.c-btn-102") || document.querySelector("#age_ok_btn");
+		const a = document.querySelector("a.c-btn-102") || document.getElementById("age_ok_btn");
 		a.click();
 	}
 	// dcard
