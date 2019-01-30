@@ -97,7 +97,7 @@
 	// blogspot
 	// from https://gist.github.com/obeattie/362589
 	else if (url.includes('.blogspot.')) {
-		const overlay = document.getElementById('injected-else iframe');
+		const overlay = document.getElementById('injected-iframe');
 		if (overlay) {
 			const nextSibling = overlay.nextElementSibling;
 			if (nextSibling.tagName == 'STYLE') nextSibling.parentElement.removeChild(nextSibling);
