@@ -4,7 +4,7 @@
 // @namespace       http://tsai.it/project/gmscripts/i-am-over-18/
 // @homepageURL     https://github.com/tsaiid/gm-i-am-over-18
 // @run-at          document-idle
-// @version         0.2.20190128
+// @version         0.2.20190130
 // @description     Automatically agrees the "I'm over 18" declaration. The current supported sites are primarily in Taiwan.
 // @icon            https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon48.png
 // @icon64          https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon64.png
@@ -170,6 +170,6 @@
 	}
 	// jkforum
 	if (url.includes("www.jkforum.net/")){
-		$('#fwin_dialog_submit').click();
+		document.getElementById('fwin_dialog_submit').click();
 	}
 })();
