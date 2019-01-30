@@ -19,7 +19,7 @@
 // @match           http://katproxy.com/*
 // @match           *://www.xvideos.com/*
 // @match           https://v.jav101.com/*
-// @match           *://*.blogspot.*/*
+// @match           *://*.blogspot.com/*
 // @match           http://www.appledaily.com.tw/*
 // @match           https://www.kocpc.com.tw/*
 // @match           https://www.myfreecams.com/*
