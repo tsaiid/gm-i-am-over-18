@@ -56,12 +56,12 @@
 	}
 
 	// for ettoday
-	if (url.includes(".ettoday.net") && $('.adult-box').is(':visible')) {
-		$('.adult-box').hide();
+	else if (url.includes(".ettoday.net")) {
+		document.querySelector('a.enter').click();
 	}
 
 	// for playno1
-	if (url.includes(".playno1.com")) {
+	else if (url.includes(".playno1.com")) {
 		waitForKeyElements(
 			'button:contains("我已滿18歲 進入")',
 			clickToContinue
@@ -69,35 +69,35 @@
 	}
 
 	// for eyny
-	if (url.includes(".eyny.com")) {
+	else if (url.includes(".eyny.com")) {
 		document.querySelector("input[value^='是，我已年滿18歲。']").click();
 	}
 
 	// for ck101
-	if (url.includes("ck101.com")) {
+	else if (url.includes("ck101.com")) {
 	  document.getElementById('periodaggre18_2015').checked = true;
 	  document.getElementById('fwin_dialog_submit').click();
 	}
 
 	// for kickass
-	if (url.includes("kickass.socialtorrent.net") || url.includes("katproxy.com")) {
+	else if (url.includes("kickass.socialtorrent.net") || url.includes("katproxy.com")) {
 		$('button:contains("Yes, let me see it")').click();
 	}
 
 	// for xvideos
-	if (url.includes(".xvideos.com")) {
-		$('#disclaimer_background').click();
+	else if (url.includes(".xvideos.com")) {
+		document.getElementById('disclaimer_background').click();
 	}
 
 	// for jav101
-	if (url.includes("v.jav101.com")) {
-		$('a.agreeBtn').click();
+	else if (url.includes("v.jav101.com")) {
+		document.querySelector("a.agreeBtn").click();
 	}
 
 	// blogspot
 	// from https://gist.github.com/obeattie/362589
-	if (url.includes('.blogspot.')) {
-		const overlay = document.getElementById('injected-iframe');
+	else if (url.includes('.blogspot.')) {
+		const overlay = document.getElementById('injected-else iframe');
 		if (overlay) {
 			const nextSibling = overlay.nextElementSibling;
 			if (nextSibling.tagName == 'STYLE') nextSibling.parentElement.removeChild(nextSibling);
@@ -106,7 +106,7 @@
 	}
 
 	// appledaily
-	if (url.includes("www.appledaily.com.tw")) {
+	else if (url.includes("www.appledaily.com.tw")) {
 		waitForKeyElements(
 			"#popup_18 a.yes",
 			clickToContinue
@@ -114,7 +114,7 @@
 	}
 
 	// www.kocpc.com.tw
-	if (url.includes("www.kocpc.com.tw")) {
+	else if (url.includes("www.kocpc.com.tw")) {
 		waitForKeyElements(
 			"button.ox18B",
 			clickToContinue
@@ -122,7 +122,7 @@
 	}
 
 	// myfreecams
-	if (url.includes("www.myfreecams.com")) {
+	else if (url.includes("www.myfreecams.com")) {
 		waitForKeyElements(
 			"#enter_desktop",
 			clickToContinue
@@ -130,7 +130,7 @@
 	}
 
 	// ibeauty
-	if (url.includes("www.ibeauty.tw")) {
+	else if (url.includes("www.ibeauty.tw")) {
 		waitForKeyElements(
 			".warningWp .warningBtn .btnYes",
 			clickToContinue
@@ -138,38 +138,38 @@
 	}
 
 	// storm.mg
-	if (url.includes("www.storm.mg")) {
+	else if (url.includes("www.storm.mg")) {
 		waitForKeyElements(
 			"button.button18x.yes",
 			clickToContinue
 		);
 	}
 	// getchu.com
-	if (url.includes("www.getchu.com/")) {
+	else if (url.includes("www.getchu.com/")) {
 		$('a:contains("[は い]")')[0].click();
 	}
 	// t66y.com
-	if (url.includes("t66y.com")) {
+	else if (url.includes("t66y.com")) {
 		waitForKeyElements(
 			'a:contains("滿 18 歲,")',
 			clickToContinue
 		);
 	}
 	// <a href="javascript:void(0)" class="c-btn-102 btnSz-2" role="button" aria-label="yes">是（進入）</a>
-	if (url.includes(".fc2.com")) {
-		const a = document.querySelector("a.c-btn-102") || document.querySelector("#age_ok_btn");
+	else if (url.includes(".fc2.com")) {
+		const a = document.querySelector("a.c-btn-102") || document.getElementById("age_ok_btn");
 		a.click();
 	}
 	// dcard
 	// <button class="Button_primary_3KkkP Button_button_2uDT-" type="button">是，我已滿十八歲。</button>
-	if (url.includes("www.dcard.tw/")) {
+	else if (url.includes("www.dcard.tw/")) {
 		waitForKeyElements(
 			'button:contains("是，我已滿十八歲。")',
 			clickToContinue
 		);
 	}
 	// jkforum
-	if (url.includes("www.jkforum.net/")){
+	else if (url.includes("www.jkforum.net/")){
 		document.getElementById('fwin_dialog_submit').click();
 	}
 })();
