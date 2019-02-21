@@ -30,6 +30,8 @@
 // @match           https://*.fc2.com/*
 // @match           https://www.dcard.tw/*
 // @match           *://www.jkforum.net/*
+// @match           https://news.gamme.com.tw/*
+// @match           http://av.movie/*
 // @require         https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
 // @require         https://gist.githubusercontent.com/BrockA/2625891/raw/waitForKeyElements.js
 // @grant           none
@@ -172,6 +174,18 @@
 	else if (url.includes("www.jkforum.net/")){
 	    waitForKeyElements(
 			'button#fwin_dialog_submit',
+			clickToContinue
+		);
+	}
+	// news.gamme
+	else if (url.includes("news.gamme.com.tw/")){
+		document.getElementById('adult_notagain').checked = true;
+        	MemberUI.r18WarningClose();
+	}
+	// av.movie
+    	else if (url.includes("av.movie/")){
+		waitForKeyElements(
+			'button#warning-yes',
 			clickToContinue
 		);
 	}
