@@ -4,7 +4,7 @@
 // @namespace       http://tsai.it/project/gmscripts/i-am-over-18/
 // @homepageURL     https://github.com/tsaiid/gm-i-am-over-18
 // @run-at          document-idle
-// @version         0.2.20190221
+// @version         0.2.20200218
 // @description     Automatically agrees the "I'm over 18" declaration. The current supported sites are primarily in Taiwan.
 // @icon            https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon48.png
 // @icon64          https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon64.png
@@ -28,7 +28,7 @@
 // @match           http://www.storm.mg/*
 // @match           https://*.fc2.com/*
 // @match           https://news.gamme.com.tw/*
-// @match           https://r18.clickme.net
+// @match           https://r18.clickme.net/*
 // @match           https://v.jav101.com/*
 // @match           https://www.dcard.tw/*
 // @match           https://www.kocpc.com.tw/*
@@ -85,7 +85,7 @@
     }
 	// clickme.net
 	else if (url.includes("r18.clickme.net")) {
-		$('a:contains("已滿18歲 進入")')[0].click();
+		$('button:contains("已滿18歲 進入")').click();
 	}    
 	// dcard
 	// <button class="Button_primary_3KkkP Button_button_2uDT-" type="button">是，我已滿十八歲。</button>
