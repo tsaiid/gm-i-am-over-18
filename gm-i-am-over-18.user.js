@@ -4,7 +4,7 @@
 // @namespace       http://tsai.it/project/gmscripts/i-am-over-18/
 // @homepageURL     https://github.com/tsaiid/gm-i-am-over-18
 // @run-at          document-idle
-// @version         0.3.20251203
+// @version         0.4.20251204.3
 // @description     Automatically agrees the "I'm over 18" declaration.
 // @icon            https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon48.png
 // @icon64          https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon64.png
