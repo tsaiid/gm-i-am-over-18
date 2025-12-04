@@ -4,7 +4,7 @@
 // @namespace       http://tsai.it/project/gmscripts/i-am-over-18/
 // @homepageURL     https://github.com/tsaiid/gm-i-am-over-18
 // @run-at          document-idle
-// @version         0.3.20251203
+// @version         0.4.20251204
 // @description     Automatically agrees the "I'm over 18" declaration.
 // @icon            https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon48.png
 // @icon64          https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon64.png
@@ -135,350 +135,485 @@
 
 (function() {
     'use strict';
-    /* eslint-disable curly */
-    /* eslint-disable no-multi-spaces */
 
-    const hostname = window.location.hostname;
-    const domain = hostname.split('.').slice(-2).join('.'); // gets "abc.com"
-
-    switch (domain) {
-        case '4tube.com':
-        case 'analgalore.com':
-        case 'asiangalore.com':
-        case 'assoass.com':
-        case 'dinotube.com':
-        case 'forhertube.com':
-        case 'fuq.com':
-        case 'fux.com':
-        case 'gaymaletube.com':
-        case 'gotporn.com':
-        case 'homemadegalore.com':
-        case 'ixxx.com':
-        case 'lobstertube.com':
-        case 'lupoporno.com':
-        case 'melonstube.com':
-        case 'pornmd.com':
-        case 'tiava.com':
-        case 'tubegalore.com':
-        case 'tubepornstars.com':
-            c('button.eighteen-plus-button'); break;
-
-        case 'hclips.com':
-        case 'hdzog.com':
-        case 'shemalez.com':
-        case 'tubepornclassic.com':
-        case 'txxx.com':
-        case 'upornia.com':
-        case 'vjav.com':
-            c('button#ageagree'); break;
-
-        case 'cameraboys.com':
-        case 'joyourself.com':
-        case 'liveprivates.com':
-        case 'livesexasian.com':
-        case 'lsawards.com':
-        case 'maturescam.com':
-        case 'mycams.com':
-        case 'mytrannycams.com':
-        case 'pornhdlive.com': {
-            // the over 18 site can only be skipped by accepting/rejecting cookies
-            c('div.overlay-gdpr-consent button + a:not([tabindex])'); // click 'Manage or reject Cookies' after the link is enabled by not having a tabindex
-            c('div.overlay-manage-consent>div>ul+button'); // click 'Confirm my choices'
-            break;
-        }
-
-        case 'alrincon.com':
-            c('a#confirmarBtn'); break;
-        case 'analvids.com':
-            c('a.__agree'); break;
-        case 'ass4all.com': {
-            c('button.disclaimer-enter-btn');
-            c('button#disclaimer-reject_cookies-btn'); //after the over 18 button comes a cookie question, reject those
-            break;
-        }
-        case 'av.movie':
-            c('button#warning-yes'); break;
-        case 'bang.com':
-        case 'porntube.com':
-            c('button[data-action="age-check#confirmAge"]'); break;
-        case 'bodenseestrasse271.de':
-            c('div#enter a'); break;
-        case 'booksusi.com':
-            c('div#eighteenPlusModal button.btn-success'); break;
-        case 'cam4.com':
-            c('dialog[data-id="AgeConsentGenderDisclaimer"] a[href="/all"]'); break;
-        case 'carisma-zeltweg.com':
-            c('input.agecheck_close'); break;
-        case 'chaturbate.com':
-            c('div#entrance_terms a#close_entrance_terms'); break;
-        case 'clips4sale.com': {
-            cCombo('input#iCertifyCheck', true);
-            c('button#enter-agree');
-            break;
-        }
-        case 'czechvr.com':
-            c('div.modalcontent button#button'); break;
-        case 'das-laufhaus.at':
-            c('button#age-control-allowed'); break;
-        case 'dcard.tw':
-            c('button:contains("是，我已滿十八歲。")');  break; // <button class="Button_primary_3KkkP Button_button_2uDT-" type="button">是，我已滿十八歲。</button>
-        case 'dorcelclub.com': {
-            const iframe = document.querySelector('iframe');
-            iframe.onload = () => {
-                const btn = iframe.contentDocument.querySelector('a.agree');
-                if (btn) btn.click();
-            };
-            break;
-        }
-        case 'eroscenter-platin.de':
-            c('form.global-frontpage-form a[href="#"]'); break;
-        case 'fuskator.com':
-            c('a#close_entrance_terms'); break;
-        case 'ettoday.net':
-            document.querySelector('a.enter').click(); break;
-        case 'eyny.com':
-            document.querySelector("input[value^='是，我已年滿18歲。']").click(); break;
-        case 'fc2.com': {
-            const e = document.querySelector("a.c-btn-102") || document.getElementById("age_ok_btn"); // <a href="javascript:void(0)" class="c-btn-102 btnSz-2" role="button" aria-label="yes">是（進入）</a>
-            if (e) e.click();
-            break;
-        }
-        case 'gayxps.com':
-            c('a.-login'); break;
-        case 'giochipremium.com':
-            c('div.dialog-message div.elementor-widget-heading+div a.elementor-button'); break;
-        case 'hentaied.com':
-            c('button.age-gate-submit-yes'); break;
-        case 'hotlady.at':
-            c('img[alt="Ja"]'); break;
-        case 'hotmovs.com':
-            c('div.type-accept-button button'); break;
-        case 'ibeauty.tw':
-            c(".warningWp .warningBtn .btnYes"); break;
-        case 'indexxx.com':
-            c('a#enterLink'); break;
-        case 'jacquieetmicheltv.net':
-            c('button.disclaimer__btn'); break;
-        case 'jkforum.net':
-            c('button#fwin_dialog_submit'); break;
-        case 'knusperhaus.at':
-            c('p.close_pop_protect a:nth-of-type(2)'); break;
-        case 'kontaktbazar.at':
-            c('button.age-gate__submit--yes'); break;
-        case 'laufhaus6.at':
-            c('div#age-check-content button.yes'); break;
-        case 'laufhaus-casabianca.at':
-            c('button.age-gate__submit--yes'); break;
-        case 'laufhaus-hasenohr.at':
-            c('input#AVenterLink'); break;
-        case 'laufhaus-neunkirchen.at':
-        case 'laufhaus-theresienfeld.at':
-            c('a.btn-success'); break;
-        case 'laufhaus-rachel.at':
-            c('button#popupbuttonno'); break;
-        case 'laufhaus-splash.at':
-            c('button.age-gate__submit--yes'); break;
-        case 'laufhaus-vienna.at':
-            c('section.slideshow-intro a.btn-primary'); break;
-        case 'letsdoeit.com':
-            c('div.sc-rkkkdv-0 button'); break;
-        case 'lustery.com':
-            c('button.AdultContentNotification_continueLink___TRRa'); break;
-        case 'www.myfreecams.com':
-            c('#enter_desktop'); break;
-        case 'olecams.com':
-        case 'olecams.tv':
-            c('div#main-video-content +div main button'); break;
-        case 'pichunter.com':
-            c('a#btn-enter'); break;
-        case 'playno1.com':
-            c('button:contains("我已滿18歲 進入")'); break;
-        case 'porn.com':
-            c('div.modal__warning p a.btn'); break;
-        case 'pornhub.com':
-            c('button.buttonOver18'); break;
-        case 'pornone.com':
-            c('a#iamover18Btn'); break;
-        case 'pornpics.com':
-            c('div.button-agree'); break;
-        case 'porntrex.com':
-            c('div.age-popup-btns div#okButton'); break;
-        case 'redtube.com': {
-            const e = document.querySelector('a#btn_agree'); // c doesn't work, this executes the mousedown event that they listen for
-            if (e) e.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
-            break;
-        }
-        case 'residenz.at':
-            c('button.accept'); break;
-        case 'romantic-bar.at':
-            c('button.age-gate-submit-yes'); break;
-        case 'seemygf.com':
-            c('button#enterButton'); break;
-        case 'sexlikereal.com':
-            c('button.js-c-age-restrictions-agree'); break;
-        case 'simplytop.at':
-            cVis('a.ulp-link-button-pink'); break;
-        case 'spankbang.com':
-            c('button#age-check-yes'); break;
-        case 'storm.mg':
-            c('button.button18x.yes'); break;
-        case 'stripchat.com':
-        case 'xhamsterlive.com':
-            c('button.btn-apply-alter'); break;
-        case 'studiorelaxe.at':
-            c('a.elementor-button-link2'); break;
-        case 'superporn.com':
-            c('button.disclaimer__button'); break;
-        case 't66y.com':
-            c('a:contains("滿 18 歲,")'); break;
-        case 'transpornsites.com':
-            c('button.yes'); break;
-        case 'tube8.com':
-            c('button#accessButton'); break;
-        case 'tukif.love':
-            cVis('div#popupDisclaimer a.button'); break;
-        case 'vitalia-muenchen.de':
-            c('button[onclick="verifyAge()"]'); break;
-        case 'vrporn.com':
-            c('button.vrporn-age-verification-btn-yes'); break;
-        case 'watchersweb.com':
-            c('a.close-age-popup'); break;
-        case 'wifebucket.com':
-            c('a.verify-button'); break;
-        case 'xfree.com': {
-            c('div#cookies-preferences__button');
-            c('div#cookies-preferences div#x-button--muted'); // only allow essential cookies
-            break;
-        }
-        case 'xnxx.com': {
-            c('div.disclaimer-enter-btns-col button.current-main-cat'); //clicks on the default category (because with accepting over 18 you must choose a category)
-            c('button#disclaimer-reject_cookies-btn'); //after the over 18 button comes a cookie question, reject those
-            break;
-        }
-        case 'xvideos.com':
-            c('button.disclaimer-enter-btn'); break;
-        case 'xxxbunker.com':
-            c('div.ageConfirmDialog a'); break;
-        case 'xxxelf.com':
-            c('button.player-btn-sign-up'); break;
-        case 'youporn.com':
-            c('button#accessButton'); break;
-        case 'zoig.com':
-            c('a.btn-danger'); break;
-
-        default: // here come all others that are subdomains (not pure domains like 'abc.com') or parts of domains:
-            if (hostname === 'www.appledaily.com.tw')
-                c('#popup_18 a.yes');
-            else if (hostname.includes('.blogspot.')) { // from https://gist.github.com/obeattie/362589
+    // --- Configuration ---
+    const RULES = [
+        {
+            // Group: Standard '18+' button
+            domains: [
+                '4tube.com', 'analgalore.com', 'asiangalore.com', 'assoass.com', 'dinotube.com',
+                'forhertube.com', 'fuq.com', 'fux.com', 'gaymaletube.com', 'gotporn.com',
+                'homemadegalore.com', 'ixxx.com', 'lobstertube.com', 'lupoporno.com', 'melonstube.com',
+                'pornmd.com', 'tiava.com', 'tubegalore.com', 'tubepornstars.com'
+            ],
+            selector: 'button.eighteen-plus-button'
+        },
+        {
+            // Group: Age agree button by ID
+            domains: [
+                'hclips.com', 'hdzog.com', 'shemalez.com', 'tubepornclassic.com',
+                'txxx.com', 'upornia.com', 'vjav.com'
+            ],
+            selector: 'button#ageagree'
+        },
+        {
+            // Group: Cookie consent + Confirm
+            domains: [
+                'cameraboys.com', 'joyourself.com', 'liveprivates.com', 'livesexasian.com',
+                'lsawards.com', 'maturescam.com', 'mycams.com', 'mytrannycams.com', 'pornhdlive.com'
+            ],
+            action: () => {
+                // Click 'Manage or reject Cookies' (enabled link usually lacks tabindex)
+                click('div.overlay-gdpr-consent button + a:not([tabindex])');
+                // Click 'Confirm my choices'
+                click('div.overlay-manage-consent>div>ul+button');
+            }
+        },
+        {
+            // Domain-specific Rules
+            domains: 'alrincon.com',
+            selector: 'a#confirmarBtn'
+        },
+        {
+            domains: 'analvids.com',
+            selector: 'a.__agree'
+        },
+        {
+            domains: 'ass4all.com',
+            action: () => {
+                click('button.disclaimer-enter-btn');
+                click('button#disclaimer-reject_cookies-btn');
+            }
+        },
+        {
+            domains: 'av.movie',
+            selector: 'button#warning-yes'
+        },
+        {
+            domains: ['bang.com', 'porntube.com'],
+            selector: 'button[data-action="age-check#confirmAge"]'
+        },
+        {
+            domains: 'bodenseestrasse271.de',
+            selector: 'div#enter a'
+        },
+        {
+            domains: 'booksusi.com',
+            selector: 'div#eighteenPlusModal button.btn-success'
+        },
+        {
+            domains: 'cam4.com',
+            selector: 'dialog[data-id="AgeConsentGenderDisclaimer"] a[href="/all"]'
+        },
+        {
+            domains: 'carisma-zeltweg.com',
+            selector: 'input.agecheck_close'
+        },
+        {
+            domains: 'chaturbate.com',
+            selector: 'div#entrance_terms a#close_entrance_terms'
+        },
+        {
+            domains: 'clips4sale.com',
+            action: () => {
+                const chk = document.querySelector('input#iCertifyCheck');
+                if (chk && !chk.checked) chk.click();
+                click('button#enter-agree');
+            }
+        },
+        {
+            domains: 'czechvr.com',
+            selector: 'div.modalcontent button#button'
+        },
+        {
+            domains: 'das-laufhaus.at',
+            selector: 'button#age-control-allowed'
+        },
+        {
+            domains: 'dcard.tw',
+            action: () => clickByText('button', '是，我已滿十八歲。')
+        },
+        {
+            domains: 'dorcelclub.com',
+            action: () => {
+                const iframe = document.querySelector('iframe');
+                if (iframe) {
+                    // Try accessing content immediately if same-origin, or wait for load
+                    try {
+                         const btn = iframe.contentDocument?.querySelector('a.agree');
+                         if (btn) btn.click();
+                    } catch (e) {}
+                    
+                    iframe.onload = () => {
+                        try {
+                            const btn = iframe.contentDocument?.querySelector('a.agree');
+                            if (btn) btn.click();
+                        } catch(e) {}
+                    };
+                }
+            }
+        },
+        {
+            domains: 'eroscenter-platin.de',
+            selector: 'form.global-frontpage-form a[href="#"]'
+        },
+        {
+            domains: 'fuskator.com',
+            selector: 'a#close_entrance_terms'
+        },
+        {
+            domains: 'ettoday.net',
+            selector: 'a.enter'
+        },
+        {
+            domains: 'eyny.com',
+            selector: "input[value^='是，我已年滿18歲。']"
+        },
+        {
+            domains: 'fc2.com',
+            action: () => click('a.c-btn-102') || click('#age_ok_btn')
+        },
+        {
+            domains: 'gayxps.com',
+            selector: 'a.-login'
+        },
+        {
+            domains: 'giochipremium.com',
+            selector: 'div.dialog-message div.elementor-widget-heading+div a.elementor-button'
+        },
+        {
+            domains: 'hentaied.com',
+            selector: 'button.age-gate-submit-yes'
+        },
+        {
+            domains: 'hotlady.at',
+            selector: 'img[alt="Ja"]'
+        },
+        {
+            domains: 'hotmovs.com',
+            selector: 'div.type-accept-button button'
+        },
+        {
+            domains: 'ibeauty.tw',
+            selector: '.warningWp .warningBtn .btnYes'
+        },
+        {
+            domains: 'indexxx.com',
+            selector: 'a#enterLink'
+        },
+        {
+            domains: 'jacquieetmicheltv.net',
+            selector: 'button.disclaimer__btn'
+        },
+        {
+            domains: 'jkforum.net',
+            selector: 'button#fwin_dialog_submit'
+        },
+        {
+            domains: 'knusperhaus.at',
+            selector: 'p.close_pop_protect a:nth-of-type(2)'
+        },
+        {
+            domains: 'kontaktbazar.at',
+            selector: 'button.age-gate__submit--yes'
+        },
+        {
+            domains: 'laufhaus6.at',
+            selector: 'div#age-check-content button.yes'
+        },
+        {
+            domains: ['laufhaus-casabianca.at', 'laufhaus-splash.at', 'kontaktbazar.at'],
+            selector: 'button.age-gate__submit--yes'
+        },
+        {
+            domains: 'laufhaus-hasenohr.at',
+            selector: 'input#AVenterLink'
+        },
+        {
+            domains: ['laufhaus-neunkirchen.at', 'laufhaus-theresienfeld.at'],
+            selector: 'a.btn-success'
+        },
+        {
+            domains: 'laufhaus-rachel.at',
+            selector: 'button#popupbuttonno'
+        },
+        {
+            domains: 'laufhaus-vienna.at',
+            selector: 'section.slideshow-intro a.btn-primary'
+        },
+        {
+            domains: 'letsdoeit.com',
+            selector: 'div.sc-rkkkdv-0 button'
+        },
+        {
+            domains: 'lustery.com',
+            selector: 'button.AdultContentNotification_continueLink___TRRa'
+        },
+        {
+            domains: 'www.myfreecams.com',
+            selector: '#enter_desktop'
+        },
+        {
+            domains: ['olecams.com', 'olecams.tv'],
+            selector: 'div#main-video-content +div main button'
+        },
+        {
+            domains: 'pichunter.com',
+            selector: 'a#btn-enter'
+        },
+        {
+            domains: 'playno1.com',
+            action: () => clickByText('button', '我已滿18歲 進入')
+        },
+        {
+            domains: 'porn.com',
+            selector: 'div.modal__warning p a.btn'
+        },
+        {
+            domains: 'pornhub.com',
+            selector: 'button.buttonOver18'
+        },
+        {
+            domains: 'pornone.com',
+            selector: 'a#iamover18Btn'
+        },
+        {
+            domains: 'pornpics.com',
+            selector: 'div.button-agree'
+        },
+        {
+            domains: 'porntrex.com',
+            selector: 'div.age-popup-btns div#okButton'
+        },
+        {
+            domains: 'redtube.com',
+            action: () => {
+                const e = document.querySelector('a#btn_agree');
+                if (e) e.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
+            }
+        },
+        {
+            domains: 'residenz.at',
+            selector: 'button.accept'
+        },
+        {
+            domains: 'romantic-bar.at',
+            selector: 'button.age-gate-submit-yes'
+        },
+        {
+            domains: 'seemygf.com',
+            selector: 'button#enterButton'
+        },
+        {
+            domains: 'sexlikereal.com',
+            selector: 'button.js-c-age-restrictions-agree'
+        },
+        {
+            domains: 'simplytop.at',
+            action: () => clickVis('a.ulp-link-button-pink')
+        },
+        {
+            domains: 'spankbang.com',
+            selector: 'button#age-check-yes'
+        },
+        {
+            domains: 'storm.mg',
+            selector: 'button.button18x.yes'
+        },
+        {
+            domains: ['stripchat.com', 'xhamsterlive.com'],
+            selector: 'button.btn-apply-alter'
+        },
+        {
+            domains: 'studiorelaxe.at',
+            selector: 'a.elementor-button-link2'
+        },
+        {
+            domains: 'superporn.com',
+            selector: 'button.disclaimer__button'
+        },
+        {
+            domains: 't66y.com',
+            action: () => clickByText('a', '滿 18 歲,')
+        },
+        {
+            domains: 'transpornsites.com',
+            selector: 'button.yes'
+        },
+        {
+            domains: ['tube8.com', 'youporn.com'],
+            selector: 'button#accessButton'
+        },
+        {
+            domains: 'tukif.love',
+            action: () => clickVis('div#popupDisclaimer a.button')
+        },
+        {
+            domains: 'vitalia-muenchen.de',
+            selector: 'button[onclick="verifyAge()"]'
+        },
+        {
+            domains: 'vrporn.com',
+            selector: 'button.vrporn-age-verification-btn-yes'
+        },
+        {
+            domains: 'watchersweb.com',
+            selector: 'a.close-age-popup'
+        },
+        {
+            domains: 'wifebucket.com',
+            selector: 'a.verify-button'
+        },
+        {
+            domains: 'xfree.com',
+            action: () => {
+                click('div#cookies-preferences__button');
+                click('div#cookies-preferences div#x-button--muted');
+            }
+        },
+        {
+            domains: 'xnxx.com',
+            action: () => {
+                click('div.disclaimer-enter-btns-col button.current-main-cat');
+                click('button#disclaimer-reject_cookies-btn');
+            }
+        },
+        {
+            domains: 'xvideos.com',
+            selector: 'button.disclaimer-enter-btn'
+        },
+        {
+            domains: 'xxxbunker.com',
+            selector: 'div.ageConfirmDialog a'
+        },
+        {
+            domains: 'xxxelf.com',
+            selector: 'button.player-btn-sign-up'
+        },
+        {
+            domains: 'zoig.com',
+            selector: 'a.btn-danger'
+        },
+        {
+            domains: 'www.appledaily.com.tw',
+            selector: '#popup_18 a.yes'
+        },
+        {
+            match: (h) => h.includes('.blogspot.'),
+            action: () => {
                 const overlay = document.getElementById('injected-iframe');
                 if (overlay) {
                     const nextSibling = overlay.nextElementSibling;
-                    if (nextSibling.tagName == 'STYLE') nextSibling.parentElement.removeChild(nextSibling);
-                    overlay.parentElement.removeChild(overlay);
+                    if (nextSibling && nextSibling.tagName === 'STYLE') nextSibling.remove();
+                    overlay.remove();
                 }
             }
-            else if (hostname === 'r18.clickme.net')
-                c('div.shield-btn button#enter');
-            else if (hostname === 'news.gamme.com.tw') {
-                document.getElementById('adult_notagain').checked = true;
-                MemberUI.r18WarningClose();
-            }
-            else if (hostname === 'v.jav101.com')
-                document.querySelector("a.agreeBtn").click();
-            else if (hostname === 'www.kocpc.com.tw')
-                c('button.ox18B');
-            //else
-            //    alert("Unmatched Domain: " + hostname);
-    }
-
-
-    /* Checks if element is visible */
-    function isVisible(e) {
-        return e.checkVisibility?.() ?? //not supported in firefox or older browsers, those use the next line
-               !!(e.offsetWidth || e.offsetHeight || e.getClientRects().length);
-    };
-
-    /* Clicks on the element, as soon as it is available */
-    function c(selectorTxt) {
-        waitForKeyElements(
-            selectorTxt,
-            (e) => e.click()
-        );
-    }
-
-    /* Clicks on the element, as soon as it is available and visible */
-    function cVis(selectorTxt) {
-        waitForKeyElements(
-            selectorTxt,
-            (e) => {if (isVisible(e)) {e.click();} else {return true;}} //the return true is to tell waitForKeyElements to treat it as not found
-        );
-    }
-
-    /* Sets the combobox to checked/unchecked via a click event*/
-    function cCombo(selectorTxt, checked) {
-        waitForKeyElements(
-            selectorTxt,
-            (e) => {if (e.checked !== checked) {e.click();} return true; } //some sites reset the combobox so return false to check it again
-        );
-    }
-
-    /*--- waitForKeyElements():
-    A utility function, for Greasemonkey scripts, that detects and handles AJAXed content.
-
-    From https://gist.githubusercontent.com/BrockA/2625891/raw/waitForKeyElements.js, but
-    modified to not need jQuery. The callback function now gets the element instead of jNodes passed.
-    Removed iframeSelector, as by default userscripts don't run in iframes.
-    Added a 10 second timeout, because when the over-18-button isn't shown until 10 seconds after page load then it probably never shows.
-
-    Usage example:
-        waitForKeyElements (
-            "div.comments",
-            commentCallbackFunction
-        );
-
-        //--- Page-specific function to do what we want when the node is found.
-        function commentCallbackFunction (e) {
-            e.textContent = "This comment changed by waitForKeyElements().";
-        }
-    */
-    function waitForKeyElements (
-        selectorTxt,    /* Required: The jQuery selector string that specifies the desired element(s). */
-        actionFunction, /* Required: The code to run when elements are found. It is passed a jNode to the matched element. */
-    ) {
-        var found;
-        const targetNodes = document.querySelectorAll(selectorTxt);
-        if (targetNodes && targetNodes.length > 0) {
-            found = true;
-            targetNodes.forEach(element => {
-                const alreadyFound = element.dataset.alreadyFound === 'true';
-                if (!alreadyFound) {
-                    var cancelFound = actionFunction(element);
-                    if (cancelFound)
-                        found = false;
-                    else
-                        element.dataset.alreadyFound = 'true';
-                }
-            });
-        }
-        else {
-            found = false;
-        }
-
-        const controlObj = waitForKeyElements.controlObj || {};
-        const controlKey = selectorTxt.replace(/[^\w]/g, "_");
-        const timeControl = controlObj[controlKey];
-        const dateLoadEnd = performance.timing.loadEventEnd;
-        if (!found && !timeControl) {
-            controlObj[controlKey] = setInterval(() => waitForKeyElements(selectorTxt, actionFunction), 300);
-            waitForKeyElements.controlObj = controlObj;
-        }
-        else if ((found && timeControl) ||
-                 // when the over-18-button isn't shown until 10 seconds after page load then stop searching
-                 ((dateLoadEnd > 0) && ((Date.now() - dateLoadEnd) > 10000)))
+        },
         {
-            clearInterval(timeControl);
-            delete controlObj[controlKey];
-            waitForKeyElements.controlObj = controlObj;
+            domains: 'r18.clickme.net',
+            selector: 'div.shield-btn button#enter'
+        },
+        {
+            domains: 'news.gamme.com.tw',
+            action: () => {
+                const checkbox = document.getElementById('adult_notagain');
+                if (checkbox) checkbox.checked = true;
+                if (typeof window.MemberUI !== 'undefined' && window.MemberUI.r18WarningClose) {
+                    window.MemberUI.r18WarningClose();
+                }
+            }
+        },
+        {
+            domains: 'v.jav101.com',
+            selector: 'a.agreeBtn'
+        },
+        {
+            domains: 'www.kocpc.com.tw',
+            selector: 'button.ox18B'
         }
+    ];
+
+    // --- Helper Functions ---
+
+    function matchesDomain(hostname, rule) {
+        if (rule.match && typeof rule.match === 'function') {
+            return rule.match(hostname);
+        }
+        const domains = Array.isArray(rule.domains) ? rule.domains : [rule.domains];
+        return domains.some(d => d && (hostname === d || hostname.endsWith('.' + d)));
     }
+
+    function isVisible(e) {
+        return !!(e.offsetWidth || e.offsetHeight || e.getClientRects().length);
+    }
+
+    function click(selector) {
+        const el = document.querySelector(selector);
+        if (el && !el.dataset.gmClicked) {
+            el.click();
+            el.dataset.gmClicked = 'true';
+            return true;
+        }
+        return false;
+    }
+
+    function clickVis(selector) {
+        const el = document.querySelector(selector);
+        if (el && isVisible(el) && !el.dataset.gmClicked) {
+            el.click();
+            el.dataset.gmClicked = 'true';
+            return true;
+        }
+        return false;
+    }
+
+    function clickByText(tagName, text) {
+        const elements = document.querySelectorAll(tagName);
+        for (const el of elements) {
+            if (el.textContent.includes(text) && !el.dataset.gmClicked) {
+                el.click();
+                el.dataset.gmClicked = 'true';
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // --- Main Execution ---
+
+    const hostname = window.location.hostname;
+    const activeRule = RULES.find(rule => matchesDomain(hostname, rule));
+
+    if (activeRule) {
+        console.log('[I am over 18] Matched rule for:', hostname);
+
+        const execute = () => {
+            if (activeRule.selector) {
+                click(activeRule.selector);
+            } else if (activeRule.action) {
+                activeRule.action();
+            }
+        };
+
+        // Execute immediately
+        execute();
+
+        // Observe for changes (SPA / Lazy load)
+        const observer = new MutationObserver((mutations) => {
+            // Simple throttle could be added here if needed, but for now we just try to execute.
+            // The helper functions check for existence and 'data-gmClicked' to avoid spamming.
+            execute();
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+        
+        // Stop observing after 10 seconds to save resources, assuming the popup would have appeared by then
+        setTimeout(() => {
+            observer.disconnect();
+        }, 10000);
+    }
+
 })();
