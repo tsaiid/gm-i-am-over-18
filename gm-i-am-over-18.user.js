@@ -10,6 +10,13 @@
 // @icon64          https://raw.githubusercontent.com/tsaiid/gm-i-am-over-18/master/icon64.png
 // @license         MIT
 // @copyright       2016, I-Ta Tsai (http://tsai.it/)
+// @contributor     craftwar
+// @contributor     haofly
+// @contributor     Jaxon
+// @contributor     Karl Li
+// @contributor     Marti Martz
+// @contributor     smailzhu
+// @contributor     w1ldg00se
 // @match           https://*.4tube.com/*
 // @match           https://*.alrincon.com/*
 // @match           https://*.analgalore.com/*
